@@ -4,7 +4,9 @@
     <list default="true" id="47a15d9d-c79e-46a9-bbbf-df38ac55657d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/exception/RestExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,22 +23,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Time</find>
-      <find>a</find>
-      <find>API</find>
-      <find>003</find>
-      <find>002</find>
-      <find>004</find>
-      <find>quora</find>
-      <find>&quot;$ref&quot;: &quot;#/parameters/Authorization&quot;</find>
-      <find>uuid</find>
-      <find>l̥</find>
-      <find>Id</find>
-      <find>?</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,8 +76,9 @@
       <recent name="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.upgrad.quora.service.dao" />
+      <recent name="com.upgrad.quora.service.business" />
       <recent name="com.upgrad.quora.service.entity" />
+      <recent name="com.upgrad.quora.service.dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Trello_quora\quora-api\src\main\resources\endpoints" />
@@ -239,46 +226,58 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1597480962595">
+    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1597490773152">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1597480962595" />
-    <state width="1878" height="458" key="GridCell.Tab.0.bottom" timestamp="1597481414141">
+    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1597490773152" />
+    <state x="698" y="355" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597488102691">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="458" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414141" />
+    <state x="698" y="355" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1597488102691" />
+    <state x="723" y="313" key="#xdebugger.evaluate" timestamp="1597489795944">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="723" y="313" key="#xdebugger.evaluate/0.0.1920.1200@0.0.1920.1200" timestamp="1597489795944" />
+    <state width="1878" height="314" key="GridCell.Tab.0.bottom" timestamp="1597496400446">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="314" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400446" />
     <state width="1878" height="458" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577829" />
-    <state width="1878" height="458" key="GridCell.Tab.0.center" timestamp="1597481414136">
+    <state width="1878" height="314" key="GridCell.Tab.0.center" timestamp="1597496400442">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="458" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414136" />
+    <state width="1878" height="314" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400442" />
     <state width="1878" height="458" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577824" />
-    <state width="1878" height="458" key="GridCell.Tab.0.left" timestamp="1597481414135">
+    <state width="1878" height="314" key="GridCell.Tab.0.left" timestamp="1597496400437">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="458" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414135" />
+    <state width="1878" height="314" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400437" />
     <state width="1878" height="458" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577823" />
-    <state width="1878" height="458" key="GridCell.Tab.0.right" timestamp="1597481414140">
+    <state width="1878" height="314" key="GridCell.Tab.0.right" timestamp="1597496400444">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="458" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414140" />
+    <state width="1878" height="314" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400444" />
     <state width="1878" height="458" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577825" />
-    <state width="1878" height="2" key="GridCell.Tab.1.bottom" timestamp="1597481402802">
+    <state width="1878" height="314" key="GridCell.Tab.1.bottom" timestamp="1597496428948">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="2" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402802" />
-    <state width="1878" height="2" key="GridCell.Tab.1.center" timestamp="1597481402801">
+    <state width="1878" height="314" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428948" />
+    <state width="1878" height="314" key="GridCell.Tab.1.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217026" />
+    <state width="1878" height="314" key="GridCell.Tab.1.center" timestamp="1597496428947">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="2" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402801" />
-    <state width="1878" height="2" key="GridCell.Tab.1.left" timestamp="1597481402800">
+    <state width="1878" height="314" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428947" />
+    <state width="1878" height="314" key="GridCell.Tab.1.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217025" />
+    <state width="1878" height="314" key="GridCell.Tab.1.left" timestamp="1597496428946">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="2" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402800" />
-    <state width="1878" height="2" key="GridCell.Tab.1.right" timestamp="1597481402801">
+    <state width="1878" height="314" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428946" />
+    <state width="1878" height="314" key="GridCell.Tab.1.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217025" />
+    <state width="1878" height="314" key="GridCell.Tab.1.right" timestamp="1597496428947">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="2" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402801" />
+    <state width="1878" height="314" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428947" />
+    <state width="1878" height="314" key="GridCell.Tab.1.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217026" />
     <state x="614" y="434" key="com.intellij.ide.util.TipDialog" timestamp="1597232737268">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -287,6 +286,10 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="100" y="100" width="1720" height="1000" key="dock-window-1/0.0.1920.1200@0.0.1920.1200" timestamp="1597406686942" />
+    <state x="615" y="364" width="689" height="472" key="find.popup" timestamp="1597489151537">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="615" y="364" width="689" height="472" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1597489151537" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,6 +298,11 @@
           <url>file://$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/QuestionControllerTest.java</url>
           <line>89</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
