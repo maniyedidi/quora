@@ -7,7 +7,6 @@
       <change beforePath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/exception/RestExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,46 +237,46 @@
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="723" y="313" key="#xdebugger.evaluate/0.0.1920.1200@0.0.1920.1200" timestamp="1597489795944" />
-    <state width="1878" height="314" key="GridCell.Tab.0.bottom" timestamp="1597496400446">
+    <state width="1878" height="445" key="GridCell.Tab.0.bottom" timestamp="1597506344043">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400446" />
+    <state width="1878" height="445" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344043" />
     <state width="1878" height="458" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577829" />
-    <state width="1878" height="314" key="GridCell.Tab.0.center" timestamp="1597496400442">
+    <state width="1878" height="445" key="GridCell.Tab.0.center" timestamp="1597506344040">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400442" />
+    <state width="1878" height="445" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344040" />
     <state width="1878" height="458" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577824" />
-    <state width="1878" height="314" key="GridCell.Tab.0.left" timestamp="1597496400437">
+    <state width="1878" height="445" key="GridCell.Tab.0.left" timestamp="1597506344036">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400437" />
+    <state width="1878" height="445" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344036" />
     <state width="1878" height="458" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577823" />
-    <state width="1878" height="314" key="GridCell.Tab.0.right" timestamp="1597496400444">
+    <state width="1878" height="445" key="GridCell.Tab.0.right" timestamp="1597506344041">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597496400444" />
+    <state width="1878" height="445" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344041" />
     <state width="1878" height="458" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577825" />
-    <state width="1878" height="314" key="GridCell.Tab.1.bottom" timestamp="1597496428948">
+    <state width="1878" height="445" key="GridCell.Tab.1.bottom" timestamp="1597506343930">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428948" />
-    <state width="1878" height="314" key="GridCell.Tab.1.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217026" />
-    <state width="1878" height="314" key="GridCell.Tab.1.center" timestamp="1597496428947">
+    <state width="1878" height="445" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343930" />
+    <state width="1878" height="432" key="GridCell.Tab.1.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285190" />
+    <state width="1878" height="445" key="GridCell.Tab.1.center" timestamp="1597506343929">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428947" />
-    <state width="1878" height="314" key="GridCell.Tab.1.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217025" />
-    <state width="1878" height="314" key="GridCell.Tab.1.left" timestamp="1597496428946">
+    <state width="1878" height="445" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343929" />
+    <state width="1878" height="432" key="GridCell.Tab.1.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285185" />
+    <state width="1878" height="445" key="GridCell.Tab.1.left" timestamp="1597506343928">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428946" />
-    <state width="1878" height="314" key="GridCell.Tab.1.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217025" />
-    <state width="1878" height="314" key="GridCell.Tab.1.right" timestamp="1597496428947">
+    <state width="1878" height="445" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343928" />
+    <state width="1878" height="432" key="GridCell.Tab.1.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285184" />
+    <state width="1878" height="445" key="GridCell.Tab.1.right" timestamp="1597506343930">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="314" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597496428947" />
-    <state width="1878" height="314" key="GridCell.Tab.1.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597496217026" />
+    <state width="1878" height="445" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343930" />
+    <state width="1878" height="432" key="GridCell.Tab.1.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285189" />
     <state x="614" y="434" key="com.intellij.ide.util.TipDialog" timestamp="1597232737268">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -300,9 +299,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
