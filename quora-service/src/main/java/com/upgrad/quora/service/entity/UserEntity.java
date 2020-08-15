@@ -41,6 +41,9 @@ public class UserEntity implements Serializable{
     @Size(max = 200)
     private String userName;
 
+    @Column(name = "ROLE")
+    private String role;
+
     @Column(name = "EMAIL")
     @NotNull
     @Size(max = 200)
@@ -168,6 +171,13 @@ public class UserEntity implements Serializable{
         this.salt = salt;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
 
     @Override

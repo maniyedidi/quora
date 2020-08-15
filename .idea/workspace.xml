@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a15d9d-c79e-46a9-bbbf-df38ac55657d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity/UserEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,46 +239,46 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1597408561903">
+    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1597480962595">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1597408561903" />
-    <state width="1878" height="483" key="GridCell.Tab.0.bottom" timestamp="1597424706917">
+    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1597480962595" />
+    <state width="1878" height="458" key="GridCell.Tab.0.bottom" timestamp="1597481414141">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597424706917" />
+    <state width="1878" height="458" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414141" />
     <state width="1878" height="458" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577829" />
-    <state width="1878" height="483" key="GridCell.Tab.0.center" timestamp="1597424706914">
+    <state width="1878" height="458" key="GridCell.Tab.0.center" timestamp="1597481414136">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597424706914" />
+    <state width="1878" height="458" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414136" />
     <state width="1878" height="458" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577824" />
-    <state width="1878" height="483" key="GridCell.Tab.0.left" timestamp="1597424706910">
+    <state width="1878" height="458" key="GridCell.Tab.0.left" timestamp="1597481414135">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597424706910" />
+    <state width="1878" height="458" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414135" />
     <state width="1878" height="458" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577823" />
-    <state width="1878" height="483" key="GridCell.Tab.0.right" timestamp="1597424706916">
+    <state width="1878" height="458" key="GridCell.Tab.0.right" timestamp="1597481414140">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597424706916" />
+    <state width="1878" height="458" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597481414140" />
     <state width="1878" height="458" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577825" />
-    <state width="1878" height="483" key="GridCell.Tab.1.bottom" timestamp="1597424835833">
+    <state width="1878" height="2" key="GridCell.Tab.1.bottom" timestamp="1597481402802">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597424835833" />
-    <state width="1878" height="483" key="GridCell.Tab.1.center" timestamp="1597424835832">
+    <state width="1878" height="2" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402802" />
+    <state width="1878" height="2" key="GridCell.Tab.1.center" timestamp="1597481402801">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597424835832" />
-    <state width="1878" height="483" key="GridCell.Tab.1.left" timestamp="1597424835831">
+    <state width="1878" height="2" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402801" />
+    <state width="1878" height="2" key="GridCell.Tab.1.left" timestamp="1597481402800">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597424835831" />
-    <state width="1878" height="483" key="GridCell.Tab.1.right" timestamp="1597424835832">
+    <state width="1878" height="2" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402800" />
+    <state width="1878" height="2" key="GridCell.Tab.1.right" timestamp="1597481402801">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="483" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597424835832" />
+    <state width="1878" height="2" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597481402801" />
     <state x="614" y="434" key="com.intellij.ide.util.TipDialog" timestamp="1597232737268">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
@@ -294,21 +295,6 @@
           <url>file://$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/QuestionControllerTest.java</url>
           <line>89</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

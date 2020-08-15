@@ -14,12 +14,17 @@ public class UserBusinessService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private  PasswordCryptographyProvider passwordCryptographyProvider;
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = SignUpRestrictedException.class)
     public UserEntity signup(UserEntity userEntity)  throws SignUpRestrictedException{
+
+        String[] encryptData = passwordCryptographyProvider.encrypt(userEntity.getPassword());
+        userEntity.setPassword(encryptData[0]);
+        userEntity.setSalt(encryptData[1]);
         try {
             return userDao.createUser(userEntity);
         }catch (DataIntegrityViolationException e) {
-            System.out.println("Message >>>> " +  e.getMessage());
             if (e.getMessage().contains("users_email_key")) {
                 throw new SignUpRestrictedException("SGR-001", "This user has already been registered, try with any other emailId");
             } else {
