@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a15d9d-c79e-46a9-bbbf-df38ac55657d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quora-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/exception/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-api/src/main/java/com/upgrad/quora/api/exception/RestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/dao/UserDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,22 +22,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Time</find>
-      <find>a</find>
-      <find>API</find>
-      <find>003</find>
-      <find>002</find>
-      <find>004</find>
-      <find>quora</find>
-      <find>&quot;$ref&quot;: &quot;#/parameters/Authorization&quot;</find>
-      <find>uuid</find>
-      <find>l̥</find>
-      <find>Id</find>
-      <find>?</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,6 +45,9 @@
     <option name="height" value="728" />
   </component>
   <component name="ProjectId" id="1fzUsV1zMQ2ZTVFEFiQYWXkBQOb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -76,7 +63,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538752844056" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -84,6 +71,14 @@
     <property name="project.structure.side.proportion" value="0.6643678" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/entity" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.upgrad.quora.service.business" />
+      <recent name="com.upgrad.quora.service.entity" />
+      <recent name="com.upgrad.quora.service.dao" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Trello_quora\quora-api\src\main\resources\endpoints" />
       <recent name="E:\Trello_quora\quora-api\src\main\resources" />
@@ -223,38 +218,6 @@
     </task>
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="CommonControllerTest - 2018.10.03 at 12h 11m 38s.xml">
-      <configuration name="CommonControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="QuestionControllerTest - 2018.10.03 at 12h 11m 56s.xml">
-      <configuration name="QuestionControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserControllerTest - 2018.10.03 at 12h 12m 15s.xml">
-      <configuration name="UserControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AdminControllerTest - 2018.10.03 at 12h 12m 42s.xml">
-      <configuration name="AdminControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AnswerControllerTest - 2018.10.03 at 12h 13m 06s.xml">
-      <configuration name="AnswerControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CommonControllerTest - 2018.10.03 at 12h 13m 24s.xml">
-      <configuration name="CommonControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="QuestionControllerTest - 2018.10.03 at 12h 13m 42s.xml">
-      <configuration name="QuestionControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserControllerTest - 2018.10.03 at 12h 14m 03s.xml">
-      <configuration name="UserControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserControllerTest - 2018.10.03 at 12h 34m 07s.xml">
-      <configuration name="UserControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AnswerControllerTest - 2018.10.03 at 12h 36m 56s.xml">
-      <configuration name="AnswerControllerTest" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="270252000" />
   </component>
@@ -262,26 +225,70 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1878" height="488" key="GridCell.Tab.0.bottom" timestamp="1597405744468">
+    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser" timestamp="1597490773152">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="488" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597405744468" />
-    <state width="1878" height="488" key="GridCell.Tab.0.center" timestamp="1597405744466">
+    <state x="773" y="295" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1200@0.0.1920.1200" timestamp="1597490773152" />
+    <state x="698" y="355" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597488102691">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="488" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597405744466" />
-    <state width="1878" height="488" key="GridCell.Tab.0.left" timestamp="1597405744465">
+    <state x="698" y="355" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1597488102691" />
+    <state x="723" y="313" key="#xdebugger.evaluate" timestamp="1597489795944">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="488" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597405744465" />
-    <state width="1878" height="488" key="GridCell.Tab.0.right" timestamp="1597405744467">
+    <state x="723" y="313" key="#xdebugger.evaluate/0.0.1920.1200@0.0.1920.1200" timestamp="1597489795944" />
+    <state width="1878" height="445" key="GridCell.Tab.0.bottom" timestamp="1597506344043">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
-    <state width="1878" height="488" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597405744467" />
+    <state width="1878" height="445" key="GridCell.Tab.0.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344043" />
+    <state width="1878" height="458" key="GridCell.Tab.0.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577829" />
+    <state width="1878" height="445" key="GridCell.Tab.0.center" timestamp="1597506344040">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.0.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344040" />
+    <state width="1878" height="458" key="GridCell.Tab.0.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577824" />
+    <state width="1878" height="445" key="GridCell.Tab.0.left" timestamp="1597506344036">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.0.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344036" />
+    <state width="1878" height="458" key="GridCell.Tab.0.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577823" />
+    <state width="1878" height="445" key="GridCell.Tab.0.right" timestamp="1597506344041">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.0.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597506344041" />
+    <state width="1878" height="458" key="GridCell.Tab.0.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597423577825" />
+    <state width="1878" height="445" key="GridCell.Tab.1.bottom" timestamp="1597506343930">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.1.bottom/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343930" />
+    <state width="1878" height="432" key="GridCell.Tab.1.bottom/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285190" />
+    <state width="1878" height="445" key="GridCell.Tab.1.center" timestamp="1597506343929">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.1.center/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343929" />
+    <state width="1878" height="432" key="GridCell.Tab.1.center/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285185" />
+    <state width="1878" height="445" key="GridCell.Tab.1.left" timestamp="1597506343928">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.1.left/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343928" />
+    <state width="1878" height="432" key="GridCell.Tab.1.left/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285184" />
+    <state width="1878" height="445" key="GridCell.Tab.1.right" timestamp="1597506343930">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state width="1878" height="445" key="GridCell.Tab.1.right/0.0.1920.1200@0.0.1920.1200" timestamp="1597506343930" />
+    <state width="1878" height="432" key="GridCell.Tab.1.right/0.23.1920.1097@0.23.1920.1097" timestamp="1597505285189" />
     <state x="614" y="434" key="com.intellij.ide.util.TipDialog" timestamp="1597232737268">
       <screen x="0" y="0" width="1920" height="1200" />
     </state>
     <state x="614" y="434" key="com.intellij.ide.util.TipDialog/0.0.1920.1200@0.0.1920.1200" timestamp="1597232737268" />
+    <state x="100" y="100" width="1720" height="1000" key="dock-window-1" timestamp="1597406686942">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="100" y="100" width="1720" height="1000" key="dock-window-1/0.0.1920.1200@0.0.1920.1200" timestamp="1597406686942" />
+    <state x="615" y="364" width="689" height="472" key="find.popup" timestamp="1597489151537">
+      <screen x="0" y="0" width="1920" height="1200" />
+    </state>
+    <state x="615" y="364" width="689" height="472" key="find.popup/0.0.1920.1200@0.0.1920.1200" timestamp="1597489151537" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -290,6 +297,11 @@
           <url>file://$PROJECT_DIR$/quora-api/src/test/java/com/upgrad/quora/api/controller/QuestionControllerTest.java</url>
           <line>89</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/quora-service/src/main/java/com/upgrad/quora/service/business/UserBusinessService.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
