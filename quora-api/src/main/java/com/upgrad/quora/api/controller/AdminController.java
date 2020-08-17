@@ -20,10 +20,11 @@ public class AdminController {
 
     @Autowired
     private AdminBusinessService adminBusinessService;
-    @RequestMapping(path = "/admin/user/{userId}", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<UserDeleteResponse> userDelete(@RequestHeader(name="authorization") final String authorization, @PathVariable(name = "userId")final String userId) throws AuthorizationFailedException {
-        UserEntity userEntity = adminBusinessService.userDelete(authorization,userId);
+
+    @RequestMapping(path = "/admin/user/{userId}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<UserDeleteResponse> userDelete(@RequestHeader(name = "authorization") final String authorization, @PathVariable(name = "userId") final String userId) throws AuthorizationFailedException {
+        UserEntity userEntity = adminBusinessService.userDelete(authorization, userId);
         UserDeleteResponse userDeleteResponse = new UserDeleteResponse().id(userEntity.getUuid()).status("USER SUCCESSFULLY DELETED");
-        return new ResponseEntity<UserDeleteResponse>(userDeleteResponse,HttpStatus.OK);
+        return new ResponseEntity<UserDeleteResponse>(userDeleteResponse, HttpStatus.OK);
     }
 }

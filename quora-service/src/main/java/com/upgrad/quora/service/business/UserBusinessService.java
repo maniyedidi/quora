@@ -21,13 +21,13 @@ public class UserBusinessService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private  PasswordCryptographyProvider passwordCryptographyProvider;
+    private PasswordCryptographyProvider passwordCryptographyProvider;
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = SignUpRestrictedException.class)
-    public UserEntity signup(UserEntity userEntity)  throws SignUpRestrictedException{
+    public UserEntity signup(UserEntity userEntity) throws SignUpRestrictedException {
         try {
             return userDao.createUser(userEntity);
-        }catch (DataIntegrityViolationException e) {
+        } catch (DataIntegrityViolationException e) {
             if (e.getMessage().contains("users_email_key")) {
                 throw new SignUpRestrictedException("SGR-001", "This user has already been registered, try with any other emailId");
             } else {
@@ -68,11 +68,11 @@ public class UserBusinessService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public  UserAuthEntity signout(final String accessToken) throws SignOutRestrictedException{
+    public UserAuthEntity signout(final String accessToken) throws SignOutRestrictedException {
         UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(accessToken);
-        if(userAuthEntity == null || userAuthEntity.getExpiresAt().isBefore(ZonedDateTime.now()) || userAuthEntity.getLogoutAt() != null){
-            throw new SignOutRestrictedException("SGR-001","User is not Signed in");
-        }else {
+        if (userAuthEntity == null || userAuthEntity.getExpiresAt().isBefore(ZonedDateTime.now()) || userAuthEntity.getLogoutAt() != null) {
+            throw new SignOutRestrictedException("SGR-001", "User is not Signed in");
+        } else {
             userAuthEntity.setLogoutAt(ZonedDateTime.now());
             userDao.updateUserAuth(userAuthEntity);
         }
