@@ -18,17 +18,25 @@ public class UserDao {
     @Autowired
     private PasswordCryptographyProvider passwordCryptographyProvider;
 
-    public UserEntity createUser(UserEntity userEntity){
+    public UserEntity createUser(UserEntity userEntity) {
         String[] encryptedText = passwordCryptographyProvider.encrypt(userEntity.getPassword());
         userEntity.setSalt(encryptedText[0]);
         userEntity.setPassword(encryptedText[1]);
         entityManager.persist(userEntity);
-        return  userEntity;
+        return userEntity;
     }
 
     public UserEntity getUserByUserName(final String userName) {
         try {
             return entityManager.createNamedQuery("userByEmail", UserEntity.class).setParameter("userName", userName).getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
+    }
+
+    public UserEntity getUserByUuid(final String uuid) {
+        try {
+            return entityManager.createNamedQuery("userByUuid", UserEntity.class).setParameter("uuid", uuid).getSingleResult();
         } catch (NoResultException nre) {
             return null;
         }
@@ -55,5 +63,8 @@ public class UserDao {
         entityManager.merge(updatedUserAuthEntity);
     }
 
+    public void deleteUserByUuid(final UserEntity userEntity) {
+        entityManager.remove(userEntity);
+    }
 
 }
