@@ -10,25 +10,22 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class AdminBusinessService {
+public class CommonService {
 
     @Autowired
     UserDao userDao;
 
-    @Transactional(propagation = Propagation.REQUIRED)
-    public UserEntity userDelete(final String authorization, final String userId) throws AuthorizationFailedException {
+    public UserEntity userProfile(final String authorization, final String userId) throws AuthorizationFailedException {
         UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(authorization);
-        UserEntity userEntity = userDao.getUserByUuid(userId);
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else if (userAuthEntity.getLogoutAt() != null) {
-            throw new AuthorizationFailedException("ATHR-002", "User is signed out");
-        } else if (userAuthEntity.getUser().getRole().equals("nonadmin")) {
-            throw new AuthorizationFailedException("ATHR-003", "Unauthorized Access, Entered user is not an admin");
-        } else if (userEntity == null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to get user details");
+        }
+        UserEntity userEntity = userDao.getUserByUuid(userId);
+        if (userEntity == null) {
             throw new AuthorizationFailedException("USR-001", "User with entered uuid to be deleted does not exist");
         }
-        userDao.deleteUserByUuid(userEntity);
         return userEntity;
     }
 

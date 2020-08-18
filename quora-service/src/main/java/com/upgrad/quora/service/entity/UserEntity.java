@@ -16,7 +16,7 @@ import java.io.Serializable;
         @NamedQuery(name = "userByEmail", query = "select u from UserEntity u where u.userName = :userName"),
         @NamedQuery(name = "userByUuid", query = "select u from UserEntity u where u.uuid = :uuid")
 })
-public class UserEntity implements Serializable{
+public class UserEntity implements Serializable {
 
     @Id
     @Column(name = "ID")
@@ -60,7 +60,7 @@ public class UserEntity implements Serializable{
     @Column(name = "ABOUTME")
     private String aboutMe;
 
-    @Column(name="DOB")
+    @Column(name = "DOB")
     private String dob;
 
 
