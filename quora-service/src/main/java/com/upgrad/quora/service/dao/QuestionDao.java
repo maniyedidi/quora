@@ -19,4 +19,9 @@ public class QuestionDao {
         }
     }
 
+    public QuestionEntity createQuestion(QuestionEntity questionEntity){
+        entityManager.persist(questionEntity);
+        return questionEntity;
+    }
+
 }
