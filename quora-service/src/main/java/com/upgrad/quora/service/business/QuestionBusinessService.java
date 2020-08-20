@@ -35,10 +35,6 @@ public class QuestionBusinessService {
             throw new AuthorizationFailedException("ATHR-002", "User is signed out");
         }
 
-        if (questionEntity == null) {
-            throw new InvalidQuestionException("QUES-001", "The question entered is invalid");
-        }
-
         questionEntity.setDate(ZonedDateTime.now());
         questionEntity.setUser(userAuthEntity.getUser());
         return questionDao.createQuestion(questionEntity);
