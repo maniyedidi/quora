@@ -2,6 +2,7 @@ package com.upgrad.quora.api.controller;
 
 import com.upgrad.quora.api.model.UserDeleteResponse;
 import com.upgrad.quora.service.business.AdminBusinessService;
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AuthenticationFailedException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
@@ -22,14 +23,10 @@ public class AdminController {
     @Autowired
     private AdminBusinessService adminBusinessService;
 
-    @RequestMapping(path = "/admin/user/{userId}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(path = "/admin/user/{userId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<UserDeleteResponse> userDelete(@RequestHeader(name = "authorization") final String authorization, @PathVariable(name = "userId") final String userId) throws AuthorizationFailedException {
-        UserEntity userEntity;
-        if (authorization.startsWith("Bearer ")) {
-            userEntity = adminBusinessService.userDelete(authorization.split("Bearer ")[1], userId);
-        } else {
-            throw new AuthorizationFailedException("ATHR-004", "Invalid Bearer token");
-        }
+        String accessToken = AuthTokenParser.parseAuthToken(authorization);
+        UserEntity userEntity = adminBusinessService.userDelete(accessToken, userId);;
         UserDeleteResponse userDeleteResponse = new UserDeleteResponse().id(userEntity.getUuid()).status("USER SUCCESSFULLY DELETED");
         return new ResponseEntity<UserDeleteResponse>(userDeleteResponse, HttpStatus.OK);
     }
