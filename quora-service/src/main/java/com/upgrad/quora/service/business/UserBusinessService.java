@@ -1,5 +1,6 @@
 package com.upgrad.quora.service.business;
 
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
@@ -69,14 +70,9 @@ public class UserBusinessService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public UserAuthEntity signout(final String accessToken) throws SignOutRestrictedException, AuthorizationFailedException {
-        UserAuthEntity userAuthEntity ;
-        if (accessToken.startsWith("Bearer ")) {
-            userAuthEntity = userDao.getUserAuthByToekn(accessToken.split("Bearer ")[1]);
-        } else {
-            throw new AuthorizationFailedException("ATHR-004", "Invalid Bearer token");
-        }
-
+    public UserAuthEntity signout(final String authorization) throws SignOutRestrictedException, AuthorizationFailedException {
+        String accessToken = AuthTokenParser.parseAuthToken(authorization);
+        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(accessToken);
         if (userAuthEntity == null || userAuthEntity.getExpiresAt().isBefore(ZonedDateTime.now()) || userAuthEntity.getLogoutAt() != null) {
             throw new SignOutRestrictedException("SGR-001", "User is not Signed in");
         } else {
