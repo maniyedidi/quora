@@ -6,6 +6,7 @@ import com.upgrad.quora.service.business.AnswerBusinessService;
 import com.upgrad.quora.service.entity.AnswerEntity;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.entity.UserEntity;
+import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.InvalidQuestionException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,22 @@ public class AnswerController {
 
         AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER CREATED");
         return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(path = "/answer/edit/{answerId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<AnswerResponse> EditAnswer(@RequestHeader("authorization") final String authorization, @PathVariable(name = "answerId") final String answerId, AnswerRequest answerRequest) throws AuthorizationFailedException, AnswerNotFoundException {
+
+        AnswerEntity answerEntity = new AnswerEntity();
+        answerEntity.setUuid(UUID.randomUUID().toString());
+        answerEntity.setAnswer(answerRequest.getAnswer());
+        UserEntity userEntity;
+        if (authorization.startsWith("Bearer ")) {
+            answerBusinessService.EditAnswer(authorization.split("Bearer ")[1],answerId,answerEntity);
+        } else {
+            throw new AuthorizationFailedException("ATH-004", "Invalid token");
+        }
+
+        AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER EDITED");
+        return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.OK);
     }
 }

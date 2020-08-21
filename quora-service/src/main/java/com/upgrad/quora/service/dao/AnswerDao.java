@@ -16,4 +16,9 @@ public class AnswerDao {
         entityManager.persist(answerEntity);
         return answerEntity;
     }
+
+    public AnswerEntity EditAnswer(AnswerEntity answerEntity) {
+        entityManager.persist(answerEntity);
+        return answerEntity;
+    }
 }

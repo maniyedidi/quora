@@ -8,6 +8,7 @@ import com.upgrad.quora.service.entity.AnswerEntity;
 import com.upgrad.quora.service.entity.QuestionEntity;
 import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
+import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.InvalidQuestionException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,25 @@ public class AnswerBusinessService {
         answerEntity.setDate(ZonedDateTime.now());
         answerEntity.setUser(userAuthEntity.getUser());
         return answerDao.createAnswer(answerEntity);
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = InvalidQuestionException.class)
+    public AnswerEntity EditAnswer(String authorization, String questionId, AnswerEntity answerEntity) throws AuthorizationFailedException, AnswerNotFoundException {
+        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(authorization);
+        QuestionEntity questionEntity = questionDao.getQuestionById(questionId);
+        if (userAuthEntity == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
+        } else if (userAuthEntity.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out");
+        }
+
+        if (questionEntity == null) {
+            throw new AnswerNotFoundException("QUES-001", "The question entered is invalid");
+        }
+        answerEntity.setQuestion(questionEntity);
+        answerEntity.setDate(ZonedDateTime.now());
+        answerEntity.setUser(userAuthEntity.getUser());
+        return answerDao.EditAnswer(answerEntity);
     }
 
 }
