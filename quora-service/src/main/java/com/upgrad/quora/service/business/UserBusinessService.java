@@ -70,7 +70,7 @@ public class UserBusinessService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public UserAuthEntity signout(final String authorization) throws SignOutRestrictedException, AuthorizationFailedException {
+    public UserAuthEntity signout(final String authorization) throws SignOutRestrictedException {
         String accessToken = AuthTokenParser.parseAuthToken(authorization);
         UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(accessToken);
         if (userAuthEntity == null || userAuthEntity.getExpiresAt().isBefore(ZonedDateTime.now()) || userAuthEntity.getLogoutAt() != null) {
