@@ -66,4 +66,23 @@ public class AnswerBusinessService {
         return answerDao.EditAnswer(answerEntity);
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
+    public AnswerEntity deleteAnswer(String accessToken, String uuid) throws AuthorizationFailedException, AnswerNotFoundException {
+        UserAuthEntity userAuth = userDao.getUserAuthByToekn(accessToken);
+        if (userAuth == null) {
+            throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
+        } else if (userAuth.getLogoutAt() != null) {
+            throw new AuthorizationFailedException("ATHR-002", "User is signed out.Sign in first to delete an answer ");
+        }
+        AnswerEntity answerEntity = answerDao.getAnswerByUUID(uuid);
+        if (answerEntity == null) {
+            throw new AnswerNotFoundException("ANS-001", "'Entered answer uuid does not exist");
+        }
+        UserEntity authUser = userAuth.getUser();
+        if (authUser.getRole().equals("nonadmin") && !authUser.getUserName().equals(answerEntity.getUser().getUserName())) {
+            throw new AuthorizationFailedException("ATHR-003", "Only the answer owner or admin can delete the answer");
+        }
+        answerDao.deleteAnswer(answerEntity);
+        return answerEntity;
+    }
 }
