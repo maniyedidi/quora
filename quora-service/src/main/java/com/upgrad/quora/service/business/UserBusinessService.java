@@ -1,9 +1,11 @@
 package com.upgrad.quora.service.business;
 
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AuthenticationFailedException;
+import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.SignOutRestrictedException;
 import com.upgrad.quora.service.exception.SignUpRestrictedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,7 @@ public class UserBusinessService {
             if (e.getMessage().contains("users_email_key")) {
                 throw new SignUpRestrictedException("SGR-001", "This user has already been registered, try with any other emailId");
             } else {
-                throw new SignUpRestrictedException("SGR-001", "Try any other Username, this Username has already been taken");
+                throw new SignUpRestrictedException("SGR-002", "Try any other Username, this Username has already been taken");
             }
         }
     }
@@ -68,7 +70,8 @@ public class UserBusinessService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public UserAuthEntity signout(final String accessToken) throws SignOutRestrictedException {
+    public UserAuthEntity signout(final String authorization) throws SignOutRestrictedException {
+        String accessToken = AuthTokenParser.parseAuthToken(authorization);
         UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(accessToken);
         if (userAuthEntity == null || userAuthEntity.getExpiresAt().isBefore(ZonedDateTime.now()) || userAuthEntity.getLogoutAt() != null) {
             throw new SignOutRestrictedException("SGR-001", "User is not Signed in");

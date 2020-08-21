@@ -24,7 +24,7 @@ public class CommonService {
         }
         UserEntity userEntity = userDao.getUserByUuid(userId);
         if (userEntity == null) {
-            throw new AuthorizationFailedException("USR-001", "User with entered uuid to be deleted does not exist");
+            throw new AuthorizationFailedException("USR-001", "User with entered uuid does not exist");
         }
         return userEntity;
     }

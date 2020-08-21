@@ -3,6 +3,7 @@ package com.upgrad.quora.api.controller;
 
 import com.upgrad.quora.api.model.UserDetailsResponse;
 import com.upgrad.quora.service.business.CommonService;
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,8 @@ public class CommonController {
 
     @RequestMapping(path = "/userprofile/{userId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<UserDetailsResponse> userProfile(@RequestHeader("authorization") final String authorization, @PathVariable(name = "userId") final String userId) throws AuthorizationFailedException {
-        UserEntity userEntity;
-        if (authorization.startsWith("Bearer ")) {
-            userEntity = commonService.userProfile(authorization.split("Bearer ")[1], userId);
-        } else {
-            throw new AuthorizationFailedException("ATH-004", "Invalid token");
-        }
+        String accessToken = AuthTokenParser.parseAuthToken(authorization);
+        UserEntity userEntity = commonService.userProfile(accessToken, userId);
         UserDetailsResponse userDetailsResponse = new UserDetailsResponse().firstName(userEntity.getFirstName()).lastName(userEntity.getLastName()).aboutMe(userEntity.getAboutMe())
                 .contactNumber(userEntity.getContactNumber()).country(userEntity.getCountry()).dob(userEntity.getDob()).emailAddress(userEntity.getEmailAddress()).userName(userEntity.getUserName());
         return new ResponseEntity<UserDetailsResponse>(userDetailsResponse, HttpStatus.OK);
