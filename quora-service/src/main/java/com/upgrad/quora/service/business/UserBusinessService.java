@@ -5,7 +5,6 @@ import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AuthenticationFailedException;
-import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.SignOutRestrictedException;
 import com.upgrad.quora.service.exception.SignUpRestrictedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,6 @@ public class UserBusinessService {
         if (userEntity == null) {
             throw new AuthenticationFailedException("ATH-001", "This username does not exist");
         }
-
         final String encryptedPassword = passwordCryptographyProvider.encrypt(password, userEntity.getSalt());
         if (encryptedPassword.equals(userEntity.getPassword())) {
             JwtTokenProvider jwtTokenProvider = new JwtTokenProvider(encryptedPassword);
@@ -53,16 +51,11 @@ public class UserBusinessService {
             userAuthEntity.setUser(userEntity);
             final ZonedDateTime now = ZonedDateTime.now();
             final ZonedDateTime expiresAt = now.plusHours(8);
-
             userAuthEntity.setAccessToken(jwtTokenProvider.generateToken(userEntity.getUuid(), now, expiresAt));
-
             userAuthEntity.setLoginAt(now);
             userAuthEntity.setExpiresAt(expiresAt);
-
             userDao.createAuthToken(userAuthEntity);
-
             userDao.updateUser(userEntity);
-
             return userAuthEntity;
         } else {
             throw new AuthenticationFailedException("ATH-002", "Password failed");

@@ -2,9 +2,7 @@ package com.upgrad.quora.api.controller;
 
 import com.upgrad.quora.api.model.UserDeleteResponse;
 import com.upgrad.quora.service.business.AdminBusinessService;
-import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.entity.UserEntity;
-import com.upgrad.quora.service.exception.AuthenticationFailedException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +23,7 @@ public class AdminController {
 
     @RequestMapping(path = "/admin/user/{userId}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<UserDeleteResponse> userDelete(@RequestHeader(name = "authorization") final String authorization, @PathVariable(name = "userId") final String userId) throws AuthorizationFailedException {
-        String accessToken = AuthTokenParser.parseAuthToken(authorization);
-        UserEntity userEntity = adminBusinessService.userDelete(accessToken, userId);;
+        UserEntity userEntity = adminBusinessService.userDelete(authorization, userId);
         UserDeleteResponse userDeleteResponse = new UserDeleteResponse().id(userEntity.getUuid()).status("USER SUCCESSFULLY DELETED");
         return new ResponseEntity<UserDeleteResponse>(userDeleteResponse, HttpStatus.OK);
     }
