@@ -9,7 +9,13 @@ import java.util.Objects;
 @Entity
 @Table(name = "question")
 @NamedQueries({
-        @NamedQuery(name = "getQuestionByUuid", query = "select q from QuestionEntity q where q.uuid=:uuid")
+        @NamedQuery(name = "getQuestionByUuid", query = "select q from QuestionEntity q where q.uuid=:uuid"),
+        @NamedQuery(name = "questionByUuid", query = "select q from QuestionEntity q where q.uuid "
+                + "= :uuid"),
+        @NamedQuery(name = "allQuestionsByUser", query =
+                "select q from QuestionEntity q where q.user.id "
+                        + "= :user_id"),
+        @NamedQuery(name = "allQuestions", query = "select q from QuestionEntity q")
 })
 public class QuestionEntity {
     @Id
