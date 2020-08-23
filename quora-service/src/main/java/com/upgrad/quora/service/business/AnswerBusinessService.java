@@ -60,7 +60,7 @@ public class AnswerBusinessService {
         if (answerEntity == null) {
             throw new AnswerNotFoundException("ANS-001", "The question entered is invalid");
         } else if (!answerEntity.getUser().getUuid().equals(userAuthEntity.getUser().getUuid())) {
-            throw new AnswerNotFoundException("ANS-003", "Only the answer owner can edit the answer");
+            throw new AuthorizationFailedException("ATHR-003", "Only the answer owner can edit the answer");
         }
         answerEntity.setAnswer(updatedAnswer);
         return answerDao.EditAnswer(answerEntity);

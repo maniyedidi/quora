@@ -1,5 +1,6 @@
 package com.upgrad.quora.service.business;
 
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.dao.QuestionDao;
 import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
@@ -28,7 +29,7 @@ public class QuestionBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = InvalidQuestionException.class)
     public QuestionEntity createQuestion(String authorization, QuestionEntity questionEntity) throws AuthorizationFailedException, InvalidQuestionException {
-        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(authorization);
+        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(AuthTokenParser.parseAuthToken((authorization)));
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else if (userAuthEntity.getLogoutAt() != null) {

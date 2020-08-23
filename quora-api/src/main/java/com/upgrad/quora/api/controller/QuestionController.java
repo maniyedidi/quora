@@ -37,13 +37,7 @@ public class QuestionController {
         QuestionEntity questionEntity = new QuestionEntity();
         questionEntity.setUuid(UUID.randomUUID().toString());
         questionEntity.setContent(questionRequest.getContent());
-        UserEntity userEntity;
-        if (authorization.startsWith("Bearer ")) {
-            questionBusinessService.createQuestion(authorization.split("Bearer ")[1],questionEntity);
-        } else {
-            throw new AuthorizationFailedException("ATH-004", "Invalid token");
-        }
-
+        questionBusinessService.createQuestion(authorization,questionEntity);
         QuestionResponse questionResponse = new QuestionResponse().id(questionEntity.getUuid()).status("QUESTION CREATED");
         return new ResponseEntity<QuestionResponse>(questionResponse, HttpStatus.CREATED);
     }
