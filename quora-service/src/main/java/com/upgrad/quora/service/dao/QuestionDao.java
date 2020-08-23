@@ -50,7 +50,7 @@ public class QuestionDao {
         return questionEntity;
     }
 
-    public List<QuestionEntity> getAllQuestionsByUser(long userId) {
+    public List<QuestionEntity> getAllQuestionsByUser(int userId) {
         return entityManager.createNamedQuery("allQuestionsByUser", QuestionEntity.class)
                 .setParameter("user_id", userId).getResultList();
     }
