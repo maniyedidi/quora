@@ -1,5 +1,6 @@
 package com.upgrad.quora.service.business;
 
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
@@ -17,7 +18,7 @@ public class AdminBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public UserEntity userDelete(final String authorization, final String userId) throws AuthorizationFailedException {
-        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(authorization);
+        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(AuthTokenParser.parseAuthToken((authorization)));
         UserEntity userEntity = userDao.getUserByUuid(userId);
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");

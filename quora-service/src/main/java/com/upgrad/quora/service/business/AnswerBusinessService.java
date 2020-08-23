@@ -1,6 +1,7 @@
 package com.upgrad.quora.service.business;
 
 
+import com.upgrad.quora.service.common.AuthTokenParser;
 import com.upgrad.quora.service.dao.AnswerDao;
 import com.upgrad.quora.service.dao.QuestionDao;
 import com.upgrad.quora.service.dao.UserDao;
@@ -31,14 +32,13 @@ public class AnswerBusinessService {
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = InvalidQuestionException.class)
     public AnswerEntity createAnswer(String authorization, String questionId, AnswerEntity answerEntity) throws AuthorizationFailedException, InvalidQuestionException {
-        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(authorization);
-        QuestionEntity questionEntity = questionDao.getQuestionById(questionId);
+        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(AuthTokenParser.parseAuthToken(authorization));
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else if (userAuthEntity.getLogoutAt() != null) {
             throw new AuthorizationFailedException("ATHR-002", "User is signed out");
         }
-
+        QuestionEntity questionEntity = questionDao.getQuestionById(questionId);
         if (questionEntity == null) {
             throw new InvalidQuestionException("QUES-001", "The question entered is invalid");
         }
@@ -49,21 +49,20 @@ public class AnswerBusinessService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = InvalidQuestionException.class)
-    public AnswerEntity EditAnswer(String authorization, String questionId, AnswerEntity answerEntity) throws AuthorizationFailedException, AnswerNotFoundException {
-        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(authorization);
-        QuestionEntity questionEntity = questionDao.getQuestionById(questionId);
+    public AnswerEntity EditAnswer(String authorization, String answerId, String updatedAnswer) throws AuthorizationFailedException, AnswerNotFoundException {
+        UserAuthEntity userAuthEntity = userDao.getUserAuthByToekn(AuthTokenParser.parseAuthToken(authorization));
         if (userAuthEntity == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else if (userAuthEntity.getLogoutAt() != null) {
             throw new AuthorizationFailedException("ATHR-002", "User is signed out");
         }
-
-        if (questionEntity == null) {
-            throw new AnswerNotFoundException("QUES-001", "The question entered is invalid");
+        AnswerEntity answerEntity = answerDao.getAnswerByUUID(answerId);
+        if (answerEntity == null) {
+            throw new AnswerNotFoundException("ANS-001", "The question entered is invalid");
+        } else if (!answerEntity.getUser().getUuid().equals(userAuthEntity.getUser().getUuid())) {
+            throw new AnswerNotFoundException("ANS-003", "Only the answer owner can edit the answer");
         }
-        answerEntity.setQuestion(questionEntity);
-        answerEntity.setDate(ZonedDateTime.now());
-        answerEntity.setUser(userAuthEntity.getUser());
+        answerEntity.setAnswer(updatedAnswer);
         return answerDao.EditAnswer(answerEntity);
     }
 
@@ -88,7 +87,7 @@ public class AnswerBusinessService {
     }
 
     public List<AnswerEntity> getAllAnswersToQuestion(String accessToken, String questionId) throws AuthorizationFailedException, InvalidQuestionException {
-        UserAuthEntity userAuth = userDao.getUserAuthByToekn(accessToken);
+        UserAuthEntity userAuth = userDao.getUserAuthByToekn(AuthTokenParser.parseAuthToken(accessToken));
         if (userAuth == null) {
             throw new AuthorizationFailedException("ATHR-001", "User has not signed in");
         } else if (userAuth.getLogoutAt() != null) {
@@ -98,7 +97,6 @@ public class AnswerBusinessService {
         if (questionEntity == null) {
             throw new InvalidQuestionException("QUES-001", "The question with entered uuid whose details are to be seen does not exist");
         }
-
-        return answerDao.getAllAnswersToQuestion(questionEntity.getUuid());
+        return answerDao.getAllAnswersByQuestionId(questionEntity);
     }
 }

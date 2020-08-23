@@ -5,7 +5,6 @@ import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.UserAuthEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import com.upgrad.quora.service.exception.AuthenticationFailedException;
-import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.SignOutRestrictedException;
 import com.upgrad.quora.service.exception.SignUpRestrictedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class UserBusinessService {
             if (e.getMessage().contains("users_email_key")) {
                 throw new SignUpRestrictedException("SGR-001", "This user has already been registered, try with any other emailId");
             } else {
-                throw new SignUpRestrictedException("SGR-002", "Try any other Username, this Username has already been taken");
+                throw new SignUpRestrictedException("SGR-001", "Try any other Username, this Username has already been taken");
             }
         }
     }
@@ -44,7 +43,6 @@ public class UserBusinessService {
         if (userEntity == null) {
             throw new AuthenticationFailedException("ATH-001", "This username does not exist");
         }
-
         final String encryptedPassword = passwordCryptographyProvider.encrypt(password, userEntity.getSalt());
         if (encryptedPassword.equals(userEntity.getPassword())) {
             JwtTokenProvider jwtTokenProvider = new JwtTokenProvider(encryptedPassword);
@@ -53,16 +51,11 @@ public class UserBusinessService {
             userAuthEntity.setUser(userEntity);
             final ZonedDateTime now = ZonedDateTime.now();
             final ZonedDateTime expiresAt = now.plusHours(8);
-
             userAuthEntity.setAccessToken(jwtTokenProvider.generateToken(userEntity.getUuid(), now, expiresAt));
-
             userAuthEntity.setLoginAt(now);
             userAuthEntity.setExpiresAt(expiresAt);
-
             userDao.createAuthToken(userAuthEntity);
-
             userDao.updateUser(userEntity);
-
             return userAuthEntity;
         } else {
             throw new AuthenticationFailedException("ATH-002", "Password failed");

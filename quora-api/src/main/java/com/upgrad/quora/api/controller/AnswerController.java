@@ -1,9 +1,6 @@
 package com.upgrad.quora.api.controller;
 
-import com.upgrad.quora.api.model.AnswerRequest;
-import com.upgrad.quora.api.model.AnswerResponse;
-import com.upgrad.quora.api.model.QuestionDeleteResponse;
-import com.upgrad.quora.api.model.QuestionDetailsResponse;
+import com.upgrad.quora.api.model.*;
 import com.upgrad.quora.service.business.AnswerBusinessService;
 import com.upgrad.quora.service.business.QuestionBusinessService;
 import com.upgrad.quora.service.common.AuthTokenParser;
@@ -18,10 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,34 +32,17 @@ public class AnswerController {
 
     @RequestMapping(path = "/question/{questionId}/answer/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AnswerResponse> createAnswer(@RequestHeader("authorization") final String authorization, @PathVariable(name = "questionId") final String questionId, AnswerRequest answerRequest) throws AuthorizationFailedException, InvalidQuestionException {
-
         AnswerEntity answerEntity = new AnswerEntity();
         answerEntity.setUuid(UUID.randomUUID().toString());
         answerEntity.setAnswer(answerRequest.getAnswer());
-        UserEntity userEntity;
-        if (authorization.startsWith("Bearer ")) {
-             answerBusinessService.createAnswer(authorization.split("Bearer ")[1],questionId,answerEntity);
-        } else {
-            throw new AuthorizationFailedException("ATH-004", "Invalid token");
-        }
-
+        answerBusinessService.createAnswer(authorization, questionId, answerEntity);
         AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER CREATED");
         return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.CREATED);
     }
 
-    @RequestMapping(path = "/answer/edit/{answerId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<AnswerResponse> EditAnswer(@RequestHeader("authorization") final String authorization, @PathVariable(name = "answerId") final String answerId, AnswerRequest answerRequest) throws AuthorizationFailedException, AnswerNotFoundException {
-
-        AnswerEntity answerEntity = new AnswerEntity();
-        answerEntity.setUuid(UUID.randomUUID().toString());
-        answerEntity.setAnswer(answerRequest.getAnswer());
-        UserEntity userEntity;
-        if (authorization.startsWith("Bearer ")) {
-            answerBusinessService.EditAnswer(authorization.split("Bearer ")[1],answerId,answerEntity);
-        } else {
-            throw new AuthorizationFailedException("ATH-004", "Invalid token");
-        }
-
+    @RequestMapping(method = RequestMethod.PUT, path = "/answer/edit/{answerId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AnswerResponse> EditAnswer(@PathVariable(name = "answerId") final String answerId, final AnswerEditRequest answerEditRequest, @RequestHeader("authorization") final String authorization, @RequestParam(name = "answer") final String updatedAnswer) throws AuthorizationFailedException, AnswerNotFoundException {
+        AnswerEntity answerEntity= answerBusinessService.EditAnswer(authorization, answerId, updatedAnswer);
         AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER EDITED");
         return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.OK);
     }
@@ -79,16 +56,15 @@ public class AnswerController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "answer/all/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<List<AnswerResponse>> getAllAnswersToQuestion(@PathVariable("questionId") String questionId, @RequestHeader("authorization") String authorization) throws AuthorizationFailedException, InvalidQuestionException  {
-        List<AnswerResponse> answerList = new ArrayList<AnswerResponse>();
+    public ResponseEntity<List<AnswerDetailsResponse>> getAllAnswersToQuestion(@PathVariable("questionId") String questionId, @RequestHeader("authorization") String authorization) throws AuthorizationFailedException, InvalidQuestionException {
+        List<AnswerDetailsResponse> answerList = new ArrayList<AnswerDetailsResponse>();
         List<AnswerEntity> answerEntityList = answerBusinessService.getAllAnswersToQuestion(authorization, questionId);
-        for (AnswerEntity answerEntity  : answerEntityList) {
-            answerList.add(new AnswerResponse().id(answerEntity.getUuid())
+        for (AnswerEntity answerEntity : answerEntityList) {
+            answerList.add(new AnswerDetailsResponse().id(answerEntity.getUuid())
                     .answerContent(answerEntity.getAnswer()).questionContent(answerEntity.getQuestion().getContent()));
         }
 
         return new ResponseEntity<>(answerList, HttpStatus.OK);
     }
 
-    }
 }
