@@ -32,7 +32,7 @@ public class UserBusinessService {
             if (e.getMessage().contains("users_email_key")) {
                 throw new SignUpRestrictedException("SGR-001", "This user has already been registered, try with any other emailId");
             } else {
-                throw new SignUpRestrictedException("SGR-002", "Try any other Username, this Username has already been taken");
+                throw new SignUpRestrictedException("SGR-001", "Try any other Username, this Username has already been taken");
             }
         }
     }
