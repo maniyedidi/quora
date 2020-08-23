@@ -30,7 +30,7 @@ public class UserBusinessService {
             return userDao.createUser(userEntity);
         } catch (DataIntegrityViolationException e) {
             if (e.getMessage().contains("users_email_key")) {
-                throw new SignUpRestrictedException("SGR-001", "This user has already been registered, try with any other emailId");
+                throw new SignUpRestrictedException("SGR-002", "This user has already been registered, try with any other emailId");
             } else {
                 throw new SignUpRestrictedException("SGR-001", "Try any other Username, this Username has already been taken");
             }

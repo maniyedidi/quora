@@ -41,8 +41,8 @@ public class AnswerController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/answer/edit/{answerId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AnswerResponse> EditAnswer(@PathVariable(name = "answerId") final String answerId, final AnswerEditRequest answerEditRequest, @RequestHeader("authorization") final String authorization, @RequestParam(name = "answer") final String updatedAnswer) throws AuthorizationFailedException, AnswerNotFoundException {
-        AnswerEntity answerEntity= answerBusinessService.EditAnswer(authorization, answerId, updatedAnswer);
+    public ResponseEntity<AnswerResponse> EditAnswer(@PathVariable(name = "answerId") final String answerId, final AnswerEditRequest answerEditRequest, @RequestHeader("authorization") final String authorization) throws AuthorizationFailedException, AnswerNotFoundException {
+        AnswerEntity answerEntity= answerBusinessService.EditAnswer(authorization, answerId, answerEditRequest.getContent());
         AnswerResponse answerResponse = new AnswerResponse().id(answerEntity.getUuid()).status("ANSWER EDITED");
         return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.OK);
     }
